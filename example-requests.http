@@ -1,0 +1,53 @@
+### Flutterwave Withdrawal API Examples
+### Use this file with REST Client extension in VS Code or similar tools
+
+@baseUrl = http://localhost:3000
+@apiKey = your_api_key_here
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get List of Banks
+GET {{baseUrl}}/api/withdrawals/banks?country=NG
+X-API-Key: {{apiKey}}
+
+### Verify Bank Account
+POST {{baseUrl}}/api/withdrawals/verify-account
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "account_number": "1234567890",
+  "account_bank": "044"
+}
+
+### Get Transfer Fee
+GET {{baseUrl}}/api/withdrawals/fee?amount=1000&currency=NGN
+X-API-Key: {{apiKey}}
+
+### Initiate Withdrawal
+POST {{baseUrl}}/api/withdrawals
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "account_bank": "044",
+  "account_number": "1234567890",
+  "amount": 1000.00,
+  "currency": "NGN",
+  "narration": "Payment for services",
+  "debit_currency": "NGN"
+}
+
+### Get Withdrawal Status
+GET {{baseUrl}}/api/withdrawals/status/WTH-1234567890-1234
+X-API-Key: {{apiKey}}
+
+### Get All Withdrawals
+GET {{baseUrl}}/api/withdrawals?page=1&per_page=20&status=SUCCESSFUL
+X-API-Key: {{apiKey}}
+
+### Get All Withdrawals with Date Filter
+GET {{baseUrl}}/api/withdrawals?date_from=2024-01-01&date_to=2024-01-31
+X-API-Key: {{apiKey}}
+
