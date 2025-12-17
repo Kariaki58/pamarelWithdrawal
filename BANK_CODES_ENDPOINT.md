@@ -155,3 +155,11 @@ Flutterwave supports banks from multiple countries. Common country codes:
 - Always use the `code` field (not `id`) when making withdrawal requests
 - The list may be updated by Flutterwave, so it's recommended to fetch it periodically or cache it
 
+
+
+
+
+
+
+
+
